@@ -1,5 +1,7 @@
 Ball b1, b2, b3;
 
+int whichBallToReplace = 1;
+
 void setup() {
   size(1800,900);
   ellipseMode(RADIUS);
@@ -26,7 +28,16 @@ void draw() {
 }
 
 void mousePressed() {
-  
+  if( whichBallToReplace == 1 ) {
+    b1 = new Ball(mouseX,mouseY);
+    whichBallToReplace++; //whichBallToReplace += 1; //whichBallToReplace = whichBallToReplace + 1;
+  } else if( whichBallToReplace == 2 ) {
+    b2 = new Ball(mouseX, mouseY);
+    whichBallToReplace++;
+  } else if( whichBallToReplace == 3 ) {
+    b3 = new Ball(mouseX, mouseY);
+    whichBallToReplace = 1;
+  }
 }
 
 void keyPressed() {
